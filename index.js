@@ -14,7 +14,6 @@ module.exports = function auto_beer(dispatch) {
 	var msg = '';
 	
 	var current_Brooch = null;
-	var current_Brooch_dbid = null;
 	
 	dispatch.hook('S_LOGIN', 9, event => { 
 		MyGameId = event.gameId;
@@ -24,7 +23,6 @@ module.exports = function auto_beer(dispatch) {
 		for(let item of event.items) {    
 			if(item.slot === 20) {
 				current_Brooch = item.id;
-				current_Brooch_dbid = item.dbid;
 				break;
 			}
 		}
