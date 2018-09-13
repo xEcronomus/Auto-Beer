@@ -4,7 +4,6 @@ module.exports = function auto_beer(dispatch) {
 	var bUSE_BROOCH	= false; 
 	var bUSE_BEER	= false;
 	var bENABLED	= false;
-	var bDebug		= false;
 
 	const command = Command(dispatch);
 	const ROOT_BEER = 80081;
@@ -14,19 +13,17 @@ module.exports = function auto_beer(dispatch) {
 	var myClass = null;	
 	var current_Brooch = null;
 	
-	///////////////////////////////////////////////////////////
-	const DEADLY_GAMBLE = 268635656;//WARRIOR
+	const DEADLY_GAMBLE 	= 268635656;//WARRIOR
 	const UNLEASH 		= 268765556;//ZERK
 	const MANA_BOOST 	= 268775656;//SORC
 	const RAGNAROK 	 	= 268555556;//VALK
-	const ARUSH 		= 11111111;//LANCER
-	const ICB			= 268635756;//SLAYER
-	const SREAPING		= 11111111;//REAPER
-	//////AWAKENING PART 2 SKILLS/////////////////////////////
-	const MBREEZE		= 11111111;//ARCHER
-	const BEAM_PANEL	= 11111111;//GUNNER
-	const ENLIGHTENMENT	= 11111111;//NINJA
-	///////////////////////////////////////////////////////////
+	const ARUSH 		= 100000000;//LANCER
+	const ICB		= 268635756;//SLAYER
+	const SREAPING		= 100000000;//REAPER
+
+	const MBREEZE		= 100000000;//ARCHER
+	const BEAM_PANEL	= 100000000;//GUNNER
+	const ENLIGHTENMENT	= 100000000;//NINJA
 	
 	dispatch.hook('S_LOGIN', 9, event => { 
 		MyGameId = event.gameId;
@@ -46,84 +43,50 @@ module.exports = function auto_beer(dispatch) {
 			if(bDebug){command.message(event.skill.toString());}
 			switch(myClass.toString().slice(-2)) {
 				case '13'://VALK
-					if(event.skill==RAGNAROK)
-					{
-						//command.message("ragnarok used");
-						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}
-					}
+					if(event.skill==RAGNAROK){
+						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}}
 					break;
 				case '04'://ZERK
-					if(event.skill==UNLEASH)
-					{
-						//command.message("unlesh used");
-						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}
-					}
+					if(event.skill==UNLEASH){
+						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}}
 					break;
 				case '01'://WARRIOR
-					if(event.skill==DEADLY_GAMBLE)
-					{
-					//	command.message("Deadly Gamble used");
-						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}
-					}
+					if(event.skill==DEADLY_GAMBLE){
+						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}}
 					break;
 				case '05'://SORC
-					if(event.skill==MANA_BOOST)
-					{
-						//command.message("mana boost used");
-						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}
-					}
+					if(event.skill==MANA_BOOST){
+						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}}
 					break;
 				case '02'://LANCER
-					if(event.skill==ARUSH)
-					{
-						//command.message("ARUSH used");
-						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}
-					}
+					if(event.skill==ARUSH){
+						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}}
 					break;
 				case '03'://SLAYER
-					if(event.skill==ICB)
-					{
-						//command.message("ICB used");
-						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}
-					}
+					if(event.skill==ICB){
+						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}}
 					break;
 				case '06'://ARCHER
-					if(event.skill==MBREEZE)
-					{
-						//command.message("Melodic Breeze used");
-						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}
-					}
+					if(event.skill==MBREEZE){
+						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}}
 					break;
 				case '09'://Reaper
-					if(event.skill==SREAPING)
-					{
-						//command.message("Shadow reaping used");
-						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}
-					}
+					if(event.skill==SREAPING){
+						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}}
 					break;
 				case '10'://Gunner
-					if(event.skill==BEAM_PANEL)
-					{
-						//command.message("Beam Panel used");
-						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}
-					}
+					if(event.skill==BEAM_PANEL){
+						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}}
 					break;
 				case '12'://Ninja
-					if(event.skill==ENLIGHTENMENT)
-					{
-						//command.message("ENLIGHTENMENT used");
-						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}
-					}
+					if(event.skill==ENLIGHTENMENT){
+						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}}
 					break;
-				
 				default:
-					command.message("No class found S_ACTION_STAGE HOOK");
 					break;				
 			}	
 		}
-	
-	});//S_ACTION_STAGE END 
-	///////////////////////////////////////////////////////////	
+	});
 	command.add('ab0', () => {
 		bENABLED 	= false;
 		bUSE_BEER 	= false;
@@ -148,12 +111,6 @@ module.exports = function auto_beer(dispatch) {
 		bUSE_BROOCH = true;
 		command.message('Brooch+Beer enabled');
 	});
-	command.add('abdebug', () => {
-		bDebug = !bDebug;
-		command.message('Debug mode');
-		command.message(String(bDebug));
-	});
-	/////////////////////////////////////////////////////////
 	function useBeer(){
 		dispatch.toServer('C_USE_ITEM', 3, {
 				gameId: MyGameId,
@@ -173,7 +130,3 @@ module.exports = function auto_beer(dispatch) {
 				loc: lastLocation.loc,
 				w: lastLocation.w,
 				unk4: true
-			});
-		}
-	}
-}
