@@ -8,10 +8,10 @@ module.exports = function auto_beer(dispatch) {
 	const command = Command(dispatch);
 	const ROOT_BEER = 80081;
 	const BLACKLIST = [19701,19704,19735]; // 1-2Not useable brooches,Clensing brooch, 
-	let MyGameId = null;
+	let gameId = null;
 	let lastLocation = null;
-	var myClass = null;	
-	var current_Brooch = null;
+	var currentClass = null;	
+	var currentBrooch = null;
 
 	const DEADLY_GAMBLE = 268635656;//WARRIOR
 	const UNLEASH 		= 268765556;//ZERK
@@ -27,22 +27,21 @@ module.exports = function auto_beer(dispatch) {
 	const ENLIGHTENMENT	= 268665556;//NINJA
 	
 	dispatch.hook('S_LOGIN', 9, event => { 
-		MyGameId = event.gameId;
-		myClass = event.templateId;
+		gameId = event.gameId;
+		currentClass = event.templateId;
 	});
 	dispatch.hook('C_PLAYER_LOCATION', 3, event => { lastLocation = event })
 	dispatch.hook('S_INVEN', 14, event => {
 		for(let item of event.items) {    
 			if(item.slot === 20) {
-				current_Brooch = item.id;
+				currentBrooch = item.id;
 				break;
 			}
 		}
 	});
-	
 	dispatch.hook('S_ACTION_STAGE', 3, (event) => {	
-		if(event.gameId.equals(MyGameId)){
-			switch(myClass.toString().slice(-2)) {
+		if(event.gameId.equals(gameId)){
+			switch(currentClass.toString().slice(-2)) {
 				case '13'://VALK
 					if(event.skill==RAGNAROK){
 						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}}
@@ -117,7 +116,7 @@ module.exports = function auto_beer(dispatch) {
 	});
 	function useBeer(){
 		dispatch.toServer('C_USE_ITEM', 3, {
-				gameId: MyGameId,
+				gameId: gameId,
 				id: ROOT_BEER,
 				amount: 1,
 				loc: lastLocation.loc,
@@ -126,10 +125,10 @@ module.exports = function auto_beer(dispatch) {
 		});
 	}
 	function useBrooch(){
-		if(!BLACKLIST.includes[current_Brooch]){
+		if(!BLACKLIST.includes[currentBrooch]){
 			dispatch.toServer('C_USE_ITEM', 3, {
-				gameId: MyGameId,
-				id: current_Brooch,
+				gameId: gameId,
+				id: currentBrooch,
 				amount: 1,
 				loc: lastLocation.loc,
 				w: lastLocation.w,
