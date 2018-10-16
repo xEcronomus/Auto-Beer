@@ -13,15 +13,14 @@ module.exports = function auto_beer(dispatch) {
 	var currentClass = null;	
 	var currentBrooch = null;
 
-	const DEADLY_GAMBLE = 268635656;//WARRIOR
+	const DEADLY_GAMBLE 	= 268635656;//WARRIOR
 	const UNLEASH 		= 268765556;//ZERK
 	const MANA_BOOST 	= 268775656;//SORC
 	const RAGNAROK 	 	= 268555556;//VALK
 	const RAGNAROK2	 	= 268685556;//VALK
 	const ARUSH 		= 268605656;//LANCER
-	const ICB			= 268635756;//SLAYER
+	const ICB		= 268635756;//SLAYER
 	const SREAPING		= 268595556;//REAPER
-
 	const MBREEZE		= 268785556;//ARCHER
 	const BEAM_PANEL	= 268845557;//GUNNER
 	const ENLIGHTENMENT	= 268665556;//NINJA
