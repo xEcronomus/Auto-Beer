@@ -5,9 +5,6 @@ module.exports = function auto_beer(dispatch) {
 	var bUSE_BEER	= true;
 	var bENABLED	= true;
 
-	
-
-
 	const command = Command(dispatch);
 	const ROOT_BEER = 80081;
 	const BLACKLIST = [19701,19704,19735]; // 1-2Not useable brooches,Clensing brooch, 
