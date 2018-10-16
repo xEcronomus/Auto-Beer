@@ -2,8 +2,11 @@ const Command = require('command');
 
 module.exports = function auto_beer(dispatch) {
 	var bUSE_BROOCH	= false; 
-	var bUSE_BEER	= false;
-	var bENABLED	= false;
+	var bUSE_BEER	= true;
+	var bENABLED	= true;
+
+	
+
 
 	const command = Command(dispatch);
 	const ROOT_BEER = 80081;
@@ -12,18 +15,19 @@ module.exports = function auto_beer(dispatch) {
 	let lastLocation = null;
 	var myClass = null;	
 	var current_Brooch = null;
-	
-	const DEADLY_GAMBLE 	= 268635656;//WARRIOR
+
+	const DEADLY_GAMBLE = 268635656;//WARRIOR
 	const UNLEASH 		= 268765556;//ZERK
 	const MANA_BOOST 	= 268775656;//SORC
 	const RAGNAROK 	 	= 268555556;//VALK
-	const ARUSH 		= 100000000;//LANCER
-	const ICB		= 268635756;//SLAYER
-	const SREAPING		= 100000000;//REAPER
+	const RAGNAROK2	 	= 268685556;//VALK
+	const ARUSH 		= 268605656;//LANCER
+	const ICB			= 268635756;//SLAYER
+	const SREAPING		= 268595556;//REAPER
 
-	const MBREEZE		= 100000000;//ARCHER
-	const BEAM_PANEL	= 100000000;//GUNNER
-	const ENLIGHTENMENT	= 100000000;//NINJA
+	const MBREEZE		= 268785556;//ARCHER
+	const BEAM_PANEL	= 268845557;//GUNNER
+	const ENLIGHTENMENT	= 268665556;//NINJA
 	
 	dispatch.hook('S_LOGIN', 9, event => { 
 		MyGameId = event.gameId;
@@ -38,13 +42,15 @@ module.exports = function auto_beer(dispatch) {
 			}
 		}
 	});
+	
 	dispatch.hook('S_ACTION_STAGE', 3, (event) => {	
 		if(event.gameId.equals(MyGameId)){
-			if(bDebug){command.message(event.skill.toString());}
 			switch(myClass.toString().slice(-2)) {
 				case '13'://VALK
 					if(event.skill==RAGNAROK){
 						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}}
+					if(event.skill==RAGNAROK2){
+						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}}	
 					break;
 				case '04'://ZERK
 					if(event.skill==UNLEASH){
@@ -52,6 +58,7 @@ module.exports = function auto_beer(dispatch) {
 					break;
 				case '01'://WARRIOR
 					if(event.skill==DEADLY_GAMBLE){
+
 						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}}
 					break;
 				case '05'://SORC
@@ -130,3 +137,7 @@ module.exports = function auto_beer(dispatch) {
 				loc: lastLocation.loc,
 				w: lastLocation.w,
 				unk4: true
+				});
+		}
+	}
+}
