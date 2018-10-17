@@ -53,7 +53,6 @@ module.exports = function auto_beer(dispatch) {
 					break;
 				case '01'://WARRIOR
 					if(event.skill==DEADLY_GAMBLE){
-
 						if(bENABLED){if(bUSE_BROOCH){useBrooch();}if(bUSE_BEER){useBeer();}}}
 					break;
 				case '05'://SORC
