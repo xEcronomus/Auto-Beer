@@ -29,11 +29,11 @@ Autamatically uses rootbeer whenever you cast one of the supported skills.
 ## Commands 
 
 - **(Default mode: ab2)**
-- *ab0*
+- ab0
   -  **Disabled the module**   
-- *ab1*
+- ab1
   -  **Enables auto brooch only**  
-- *ab2*
+- ab2
   -  **Enables auto beer only**    
-- *ab3*
+- ab3
   -  **Enabled auto brooch and beer**  
