@@ -10,7 +10,8 @@ Autamatically uses rootbeer whenever you cast one of the supported skills.
 - Sorcerer
   -  **Mana Boost**    
 - Valkyrie
-  -  **Ragnarok** & **Godsfall**
+  -  **Ragnarok**
+  -  **Godsfall**
 - Lancer
   -  **Adrenalin Rush**  
 - Slayer
@@ -28,7 +29,11 @@ Autamatically uses rootbeer whenever you cast one of the supported skills.
 ## Commands 
 
 - **(Default mode: ab2)**
-- *ab0* **Disabled the module**   
-- *ab1* **Enables auto brooch only**  
-- *ab2* **Enables auto beer only**    
-- *ab3* **Enabled auto brooch and beer**  
+- *ab0*
+  -  **Disabled the module**   
+- *ab1*
+  -  **Enables auto brooch only**  
+- *ab2*
+  -  **Enables auto beer only**    
+- *ab3*
+  -  **Enabled auto brooch and beer**  
