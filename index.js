@@ -1,3 +1,4 @@
+
 const Command = require('command');
 
 module.exports = function auto_beer(dispatch) {
@@ -38,7 +39,7 @@ module.exports = function auto_beer(dispatch) {
 			}
 		}
 	});
-	dispatch.hook('S_ACTION_STAGE', 3, (event) => {	
+	dispatch.hook('S_ACTION_STAGE', 3, {order: -50}, (event) => {	
 		if(event.gameId.equals(gameId)){
 			switch(currentClass.toString().slice(-2)) {
 				case '13'://VALK
